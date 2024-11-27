@@ -57,13 +57,17 @@
              right:310px;
              top:45px;
         }
+        .header{
+            background-color:gray;
+
+        }
        
     </style>
 </head>
 
 <body>
     <h1 class="heading">Google Meet</h1>
-    <div>
+    <div class="header">
         <button type="button" class="btn left">Stop Presenting</button>
     </div>
     <img src="present.png" height="600px" class="img">
@@ -81,7 +85,12 @@
         "sandhya",
         "gururaj",
         "aditya",
-        "vedant"]
+        "vedant",
+        "priya",
+        "divya",
+        "amit",
+        "sunil",
+        "anil"]
         const studentsContainer = document.getElementById('students-container');
         students.forEach((stud)=>{
             studentsContainer.innerHTML += `<div class='student-card'>${stud}</div>`
