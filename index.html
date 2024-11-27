@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .heading{
+            text-align: center;
+        }
+        .student-card{
+            background-color:#f1f1f1;
+            padding:10px;
+            margin:10px;
+            border-radius:5px;
+            box-shadow:0 0 5px rgba(0,0,0,0.1);
+            border:1px solid #ddd;
+            width:265px;
+            margin-left:1200px;
+        }
+        #search{
+             margin-top:0;
+             position:absolute;
+             margin-left:50px;
+        }
+        .btn{
+            margin-left: 40px;
+            padding: 7px 15px;
+            background-color: rgb(60, 109, 206);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .img{
+            position: relative;
+        }
+        .btn1{
+            position: absolute;
+            right:180px;
+            top:130px;
+        }
+        .btn2{
+            position: absolute;
+            right:40px;
+            top:130px;
+        }
+        #students-container{
+           position:absolute;
+           right:0;
+           top:170px;
+        }
+        .left{
+             position: absolute;
+             right:310px;
+             top:45px;
+        }
+       
+    </style>
+</head>
+
+<body>
+    <h1 class="heading">Google Meet</h1>
+    <div>
+        <button type="button" class="btn left">Stop Presenting</button>
+    </div>
+    <img src="present.png" height="600px" class="img">
+    <input type="text" id="search" placeholder="Search" onkeyup="loadSearchResult()"/>
+    <div class="btn">
+    <button type="button" class="btn btn1">All Muted</button>
+    <button type="button" class="btn btn2">Add People</button>
+    </div>
+    <div id="students-container"></div>
+
+    <script src="https://kit.fontawesome.com/40b0ef9a69.js" crossorigin="anonymous"></script>
+    <script>
+        const students = [
+        "shradha",
+        "sandhya",
+        "gururaj",
+        "aditya",
+        "vedant"]
+        const studentsContainer = document.getElementById('students-container');
+        students.forEach((stud)=>{
+            studentsContainer.innerHTML += `<div class='student-card'>${stud}</div>`
+        })
+        
+        function loadSearchResult()
+        {
+            const inputElement = document.getElementById('search');
+            const searchText = inputElement.value.toLowerCase();
+            studentsContainer.innerHTML = '';
+            const filteredStudents = students.filter((stud)=>{
+                if(stud.toLowerCase().includes(searchText)){
+                    return true;
+                }
+            })
+            filteredStudents.forEach((stud)=>{
+                studentsContainer.innerHTML += `<div class='student-card'>${stud}</div>`
+            })
+        }
+    </script>
+</body>
+
+</html>
